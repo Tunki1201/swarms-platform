@@ -22,12 +22,6 @@ interface Props {
   link: string
 }
 
-const shareDetails: ShareDetails = {
-  message: "Check out this cool model/prompt/swarm on the swarms platform!",
-  link: "https://swarms.world/model/qwen-vl",
-  subject: "Check this out!"
-};
-
 const collapsedMenu = 'collapsedMenu';
 
 const InfoCard = ({
@@ -52,6 +46,12 @@ const InfoCard = ({
 
   const { query } = useQueryMutation();
 
+  const shareDetails: ShareDetails = {
+    message: "Check out this cool model/prompt/swarm on the swarms platform!",
+    link: `https://swarms.world${link}`,
+    subject: "Check this out!"
+  };
+
   const handleRatingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!query.members.data?.length) {
       e.preventDefault();
@@ -75,12 +75,12 @@ const InfoCard = ({
       setTimeout(() => setCopied(false), 2000);
     });
   };
-  
+
   const handleShareWithTweet = () => openShareWindow('twitter', shareDetails);
   const handleShareWithLinkedIn = () => openShareWindow('linkedin', shareDetails);
   const handleShareWithFacebook = () => openShareWindow('facebook', shareDetails);
   const handleShareWithEmail = () => openShareWindow('email', shareDetails);
-  
+
   const renderPrice = (label: string, price: number) => (
     <li className="pricing-unit">
       <span className="font-semibold">{label}</span>
@@ -204,7 +204,7 @@ const InfoCard = ({
                 type="text"
                 readOnly
                 className="luma-input w-full border-[1px] rounded-lg p-2"
-                value="https://swarms.world/model/qwen-vl"
+                value={`https://swarms.world${link}`}
               />
               <div className="ticket-share-url-copy ml-2">
                 <button
