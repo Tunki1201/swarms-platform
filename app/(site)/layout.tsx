@@ -1,7 +1,7 @@
 import { Metadata, Viewport } from 'next';
 import Footer from '@/shared/components/ui/Footer';
 import Navbar from '@/shared/components/ui/Navbar';
-import { PropsWithChildren, use } from 'react';
+import { PropsWithChildren } from 'react';
 import { getURL } from '@/shared/utils/helpers';
 import '@/shared/styles/main.css';
 import PanelLayoutSidebar from '@/shared/components/panel-layout/components/sidebar/sidebar';
@@ -72,7 +72,8 @@ export default async function RootLayout({ children }: PropsWithChildren) {
             : '',
         )}
       >
-        {user && <PanelLayoutSidebar user={user} />}
+        {
+          user && <PanelLayoutSidebar user={user} />}
         <main
           className={cn(
             user
