@@ -1,5 +1,6 @@
 import type { Tables } from '@/types_db';
 import confetti from 'canvas-confetti';
+import reactSyntaxHighlighter from 'react-syntax-highlighter';
 
 type Price = Tables<'prices'>;
 
@@ -205,6 +206,7 @@ export function getTruncatedString(str: string, num: number, endLabel = '...') {
   if (str.split('').length > num) return `${words.join('')}${endLabel}`;
   return str;
 }
+
 
 export const isEmpty = (obj: ObjectOrArray | any) =>
   [Object, Array].includes((obj || {}).constructor) &&
