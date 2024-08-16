@@ -13,6 +13,7 @@ const PendingInvites = dynamic(() => import('./components/pending-invite'), {
 const OrganizationTeam = dynamic(() => import('./components/team'), {
   ssr: false,
 });
+
 export default function Organization() {
   const user_res = trpc.main.getUser.useQuery();
   const user = user_res.data as unknown as User;
