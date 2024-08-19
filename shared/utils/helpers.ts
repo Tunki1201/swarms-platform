@@ -189,12 +189,12 @@ export const formatSpentTime = (value: number) => {
   }
 };
 
-// export const makeUrl = (url: string, data: any) => {
-//   // replace all [key], {key} with data[key]
-//   return url.replace(/\[(.*?)\]|\{(.*?)\}/g, (match, p1, p2) => {
-//     return data[p1 || p2];
-//   });
-// };
+export const makeUrl = (url: string, data: any) => {
+  // replace all [key], {key} with data[key]
+  return url.replace(/\[(.*?)\]|\{(.*?)\}/g, (match, p1, p2) => {
+    return data[p1 || p2];
+  });
+};
 
 // shorten string to num and attached endLabel to shortened string
 export function getTruncatedString(str: string, num: number, endLabel = '...') {
